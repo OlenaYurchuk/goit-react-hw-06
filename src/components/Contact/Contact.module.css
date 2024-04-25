@@ -1,0 +1,25 @@
+.wrap {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.btn {
+  padding: 5px;
+  outline: 0 none;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(51, 112, 255);
+  color: white;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: blue;
+}
