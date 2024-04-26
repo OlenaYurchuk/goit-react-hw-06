@@ -1,10 +1,11 @@
 .form {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  background: #ecf0f3;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 15px;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px #fff;
 }
 
 .inputWrap {

@@ -1,24 +1,26 @@
-import { createSelector } from 'reselect';
-import Contact from '../Contact/Contact'
-import { useSelector, useDispatch } from 'react-redux'
-import { deleteContact } from '../../redux/contactsSlice'
-import css from './ContactList.module.css'
+import Contact from '../Contact/Contact';
+import { useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/contactsSlice';
+import css from './ContactList.module.css';
 
 export default function ContactList() {
   const dispatch = useDispatch();
-  const selectContacts = state => state.contacts.items;
-  const selectFilterName = state => state.filters.name.toLowerCase().trim();
+  const useFilteredContacts = () => {
+    const contacts = useSelector(state => state.contacts.items);
+    const filterName = useSelector(state => state.filters.name.toLowerCase().trim());
 
-  const filteredContactsSelector = createSelector(
-    [selectContacts, selectFilterName],
-    (contacts, filterName) => {
+    const filteredContacts = useMemo(() => {
       return contacts.filter(item =>
         item.name.toLowerCase().trim().includes(filterName)
       );
-    }
-  );
+    }, [contacts, filterName]);
 
-  const contacts = useSelector(filteredContactsSelector);
+    return filteredContacts;
+  };
+
+
+  const contacts = useFilteredContacts();
 
   const handleDelete = (contactId) => {
     dispatch(deleteContact(contactId));
