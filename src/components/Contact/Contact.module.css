@@ -1,10 +1,11 @@
 .wrap {
-  border: 1px solid black;
-  border-radius: 5px;
+  border: transparent;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  box-shadow: 6px 6px 6px #cbced1, -2px -2px 18px #fff;
 }
 
 .btn {
