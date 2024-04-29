@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { filterContacts } from '../../redux/filtersSlice'
-import css from './SearchBar.module.css'
+import css from './SearchBox.module.css'
 
 export default function SearchBar() {
   const value = useSelector(state => state.filterr);
